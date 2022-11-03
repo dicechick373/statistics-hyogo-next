@@ -44,6 +44,7 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import StarBorder from '@mui/icons-material/StarBorder';
 import * as Icons from '@mui/icons-material/'
 import React from 'react';
+import SidebarItem from '../SidebarItem';
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -216,25 +217,6 @@ function SidebarMenu() {
   return (
     <>
       <MenuWrapper>
-        <List component="div">
-          <SubMenuWrapper>
-            <List component="div">
-              <ListItem component="div">
-                <NextLink href="/" passHref>
-                  <Button
-                    className={currentRoute === '="/' ? 'active' : ''}
-                    disableRipple
-                    component="a"
-                    onClick={closeSidebar}
-                    startIcon={<DesignServicesTwoToneIcon />}
-                  >
-                    Overview
-                  </Button>
-                </NextLink>
-              </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List>
 
         <List
           component="div"
@@ -244,39 +226,21 @@ function SidebarMenu() {
             </ListSubheader>
           }
         >
-          <SubMenuWrapper>
-            <ListItemButton>
-              <ListItemIcon>
-                <SendIcon />
-              </ListItemIcon>
-              <ListItemText primary="Sent mail" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemIcon>
-                <DraftsIcon />
-              </ListItemIcon>
-              <ListItemText primary="Drafts" />
-            </ListItemButton>
-            <ListItemButton onClick={handleClick}>
-              <ListItemIcon>
-                <InboxIcon />
-              </ListItemIcon>
-              <ListItemText primary="Inbox" />
-              {open ? <ExpandLess /> : <ExpandMore />}
-            </ListItemButton>
-            <Collapse in={open} timeout="auto" unmountOnExit>
-              <List component="div" disablePadding>
-                <NextLink href="/dashboards/crypto" passHref>
-                  <ListItemButton sx={{ pl: 4 }}>
-                    <ListItemIcon>
-                      {React.createElement(Icons['StarBorder'])}
-                    </ListItemIcon>
-                    <ListItemText primary="Starred" />
-                  </ListItemButton>
-                </NextLink>
-              </List>
-            </Collapse>
-          </SubMenuWrapper>
+
+
+          <ListItemButton onClick={handleClick}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Inbox" />
+            {open ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <SidebarItem fieldId={'landweather'} text={''} href={''} icons={''} />
+            </List>
+          </Collapse>
+
         </List>
 
         <List
