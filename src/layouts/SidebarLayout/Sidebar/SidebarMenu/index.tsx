@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { useRouter } from 'next/router';
 
 import {
@@ -9,42 +9,27 @@ import {
   styled,
   Button,
   ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Collapse
 } from '@mui/material';
 import NextLink from 'next/link';
 import { SidebarContext } from 'src/contexts/SidebarContext';
-
-import DesignServicesTwoToneIcon from '@mui/icons-material/DesignServicesTwoTone';
 import BrightnessLowTwoToneIcon from '@mui/icons-material/BrightnessLowTwoTone';
 import MmsTwoToneIcon from '@mui/icons-material/MmsTwoTone';
-import TableChartTwoToneIcon from '@mui/icons-material/TableChartTwoTone';
-import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
-import BallotTwoToneIcon from '@mui/icons-material/BallotTwoTone';
-import BeachAccessTwoToneIcon from '@mui/icons-material/BeachAccessTwoTone';
-import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
-import FilterVintageTwoToneIcon from '@mui/icons-material/FilterVintageTwoTone';
-import HowToVoteTwoToneIcon from '@mui/icons-material/HowToVoteTwoTone';
-import LocalPharmacyTwoToneIcon from '@mui/icons-material/LocalPharmacyTwoTone';
-import RedeemTwoToneIcon from '@mui/icons-material/RedeemTwoTone';
-import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
-import TrafficTwoToneIcon from '@mui/icons-material/TrafficTwoTone';
-import CheckBoxTwoToneIcon from '@mui/icons-material/CheckBoxTwoTone';
-import ChromeReaderModeTwoToneIcon from '@mui/icons-material/ChromeReaderModeTwoTone';
-import WorkspacePremiumTwoToneIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
-import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
-import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import DraftsIcon from '@mui/icons-material/Drafts';
-import SendIcon from '@mui/icons-material/Send';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import StarBorder from '@mui/icons-material/StarBorder';
-import * as Icons from '@mui/icons-material/'
-import React from 'react';
-import SidebarItem from '../SidebarItem';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import GroupIcon from '@mui/icons-material/Group';
+import PaymentsIcon from '@mui/icons-material/Payments';
+import AgricultureIcon from '@mui/icons-material/Agriculture';
+import FactoryIcon from '@mui/icons-material/Factory';
+import StoreIcon from '@mui/icons-material/Store';
+import LocationCityIcon from '@mui/icons-material/LocationCity';
+import HomeWorkIcon from '@mui/icons-material/HomeWork';
+import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import SchoolIcon from '@mui/icons-material/School';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import VpnLockIcon from '@mui/icons-material/VpnLock';
+import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
+import PublicIcon from '@mui/icons-material/Public';
+
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -193,56 +178,9 @@ function SidebarMenu() {
   const router = useRouter();
   const currentRoute = router.pathname;
 
-  const [open, setOpen] = useState(true);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
-  // fields
-
-  // menus
-  // const [menus, setMenus] = useState([])
-  // useEffect(() => {
-  //   const fetchMenus = async () => {
-  //     const response = await fetch('/api/menus')
-  //     const data = await response.json()
-  //     setMenus(data.menus)
-  //   }
-  //   fetchMenus()
-  // }, [])
-
-  // console.log(menus)
-
   return (
     <>
       <MenuWrapper>
-
-        <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              統計分野
-            </ListSubheader>
-          }
-        >
-
-
-          <ListItemButton onClick={handleClick}>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary="Inbox" />
-            {open ? <ExpandLess /> : <ExpandMore />}
-          </ListItemButton>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <SidebarItem fieldId={'landweather'} text={''} href={''} icons={''} />
-            </List>
-          </Collapse>
-
-        </List>
-
         <List
           component="div"
           subheader={
@@ -283,295 +221,228 @@ function SidebarMenu() {
                   </Button>
                 </NextLink>
               </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List>
-        <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Management
-            </ListSubheader>
-          }
-        >
-          <SubMenuWrapper>
-            <List component="div">
               <ListItem component="div">
-                <NextLink href="/management/transactions" passHref>
+                <NextLink href="/landweather" passHref>
                   <Button
                     className={
-                      currentRoute === '/management/transactions'
-                        ? 'active'
-                        : ''
+                      currentRoute === '/landweather' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<TableChartTwoToneIcon />}
+                    startIcon={<WbSunnyIcon />}
                   >
-                    Transactions List
+                    国土・気象
                   </Button>
                 </NextLink>
               </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List>
-        <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Accounts
-            </ListSubheader>
-          }
-        >
-          <SubMenuWrapper>
-            <List component="div">
               <ListItem component="div">
-                <NextLink href="/management/profile" passHref>
+                <NextLink href="/population" passHref>
                   <Button
                     className={
-                      currentRoute === '/management/profile' ? 'active' : ''
+                      currentRoute === '/population' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<AccountCircleTwoToneIcon />}
+                    startIcon={<GroupIcon />}
                   >
-                    User Profile
+                    人口・世帯
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/management/profile/settings" passHref>
+                <NextLink href="/laborwage" passHref>
                   <Button
                     className={
-                      currentRoute === '/management/profile/settings'
-                        ? 'active'
-                        : ''
+                      currentRoute === '/laborwage' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<DisplaySettingsTwoToneIcon />}
+                    startIcon={<PaymentsIcon />}
                   >
-                    Account Settings
+                    労働・賃金
                   </Button>
                 </NextLink>
               </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List>
-        <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Components
-            </ListSubheader>
-          }
-        >
-          <SubMenuWrapper>
-            <List component="div">
               <ListItem component="div">
-                <NextLink href="/components/buttons" passHref>
+                <NextLink href="/agriculture" passHref>
                   <Button
                     className={
-                      currentRoute === '/components/buttons' ? 'active' : ''
+                      currentRoute === '/agriculture' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<BallotTwoToneIcon />}
+                    startIcon={<AgricultureIcon />}
                   >
-                    Buttons
+                    農林水産業
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/components/modals" passHref>
+                <NextLink href="/miningindustry" passHref>
                   <Button
                     className={
-                      currentRoute === '/components/modals' ? 'active' : ''
+                      currentRoute === '/miningindustry' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<BeachAccessTwoToneIcon />}
+                    startIcon={<FactoryIcon />}
                   >
-                    Modals
+                    鉱工業
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/components/accordions" passHref>
+                <NextLink href="/miningindustry" passHref>
                   <Button
                     className={
-                      currentRoute === '/components/accordions' ? 'active' : ''
+                      currentRoute === '/miningindustry' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<EmojiEventsTwoToneIcon />}
+                    startIcon={<StoreIcon />}
                   >
-                    Accordions
+                    商業・サービス業
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/components/tabs" passHref>
+                <NextLink href="/economy" passHref>
                   <Button
                     className={
-                      currentRoute === '/components/tabs' ? 'active' : ''
+                      currentRoute === '/economy' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<FilterVintageTwoToneIcon />}
+                    startIcon={<LocationCityIcon />}
                   >
-                    Tabs
+                    企業・家計・経済
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/components/badges" passHref>
+                <NextLink href="/construction" passHref>
                   <Button
                     className={
-                      currentRoute === '/components/badges' ? 'active' : ''
+                      currentRoute === '/construction' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<HowToVoteTwoToneIcon />}
+                    startIcon={<HomeWorkIcon />}
                   >
-                    Badges
+                    住宅・土地・建設
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/components/tooltips" passHref>
+                <NextLink href="/energy" passHref>
                   <Button
                     className={
-                      currentRoute === '/components/tooltips' ? 'active' : ''
+                      currentRoute === '/energy' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<LocalPharmacyTwoToneIcon />}
+                    startIcon={<LocalDrinkIcon />}
                   >
-                    Tooltips
+                    エネルギー・水
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/components/avatars" passHref>
+                <NextLink href="/tourism" passHref>
                   <Button
                     className={
-                      currentRoute === '/components/avatars' ? 'active' : ''
+                      currentRoute === '/tourism' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<RedeemTwoToneIcon />}
+                    startIcon={<LocalShippingIcon />}
                   >
-                    Avatars
+                    運輸・観光
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/components/cards" passHref>
+                <NextLink href="/educationsports" passHref>
                   <Button
                     className={
-                      currentRoute === '/components/cards' ? 'active' : ''
+                      currentRoute === '/educationsports' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<SettingsTwoToneIcon />}
+                    startIcon={<SchoolIcon />}
                   >
-                    Cards
+                    教育・文化・スポーツ
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/components/forms" passHref>
+                <NextLink href="/administrativefinancial" passHref>
                   <Button
                     className={
-                      currentRoute === '/components/forms' ? 'active' : ''
+                      currentRoute === '/administrativefinancial' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<TrafficTwoToneIcon />}
+                    startIcon={<MonetizationOnIcon />}
                   >
-                    Forms
-                  </Button>
-                </NextLink>
-              </ListItem>
-            </List>
-          </SubMenuWrapper>
-        </List>
-        <List
-          component="div"
-          subheader={
-            <ListSubheader component="div" disableSticky>
-              Extra Pages
-            </ListSubheader>
-          }
-        >
-          <SubMenuWrapper>
-            <List component="div">
-              <ListItem component="div">
-                <NextLink href="/status/404" passHref>
-                  <Button
-                    className={currentRoute === '/status/404' ? 'active' : ''}
-                    disableRipple
-                    component="a"
-                    onClick={closeSidebar}
-                    startIcon={<CheckBoxTwoToneIcon />}
-                  >
-                    Error 404
+                    行財政
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/status/500" passHref>
-                  <Button
-                    className={currentRoute === '/status/500' ? 'active' : ''}
-                    disableRipple
-                    component="a"
-                    onClick={closeSidebar}
-                    startIcon={<CameraFrontTwoToneIcon />}
-                  >
-                    Error 500
-                  </Button>
-                </NextLink>
-              </ListItem>
-              <ListItem component="div">
-                <NextLink href="/status/coming-soon" passHref>
+                <NextLink href="/safetyenvironment" passHref>
                   <Button
                     className={
-                      currentRoute === '/status/coming-soon' ? 'active' : ''
+                      currentRoute === '/safetyenvironment' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<ChromeReaderModeTwoToneIcon />}
+                    startIcon={<VpnLockIcon />}
                   >
-                    Coming Soon
+                    司法・安全・環境
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/status/maintenance" passHref>
+                <NextLink href="/socialsecurity" passHref>
                   <Button
                     className={
-                      currentRoute === '/status/maintenance' ? 'active' : ''
+                      currentRoute === '/socialsecurity' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
-                    startIcon={<WorkspacePremiumTwoToneIcon />}
+                    startIcon={<LocalHospitalIcon />}
                   >
-                    Maintenance
+                    医療・社会保障・衛生
+                  </Button>
+                </NextLink>
+              </ListItem>
+              <ListItem component="div">
+                <NextLink href="/international" passHref>
+                  <Button
+                    className={
+                      currentRoute === '/international' ? 'active' : ''
+                    }
+                    disableRipple
+                    component="a"
+                    onClick={closeSidebar}
+                    startIcon={<PublicIcon />}
+                  >
+                    国際
                   </Button>
                 </NextLink>
               </ListItem>

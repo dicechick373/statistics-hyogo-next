@@ -32,7 +32,7 @@ export type City = {
 export type Field = {
   fieldId: string
   fieldTitle: string
-  iconPath: string
+  icon: string
   index: number
 }
 
@@ -66,3 +66,16 @@ export type Category = {
   type: string
   yAxis: number
 }
+
+// export type SidebarMenus = {
+//   id: string
+//   title: string
+//   children: SidebarItem[]
+
+// }
+
+// export type SidebarItem = {
+//   id: string
+//   title: string
+//   url: string
+// }
