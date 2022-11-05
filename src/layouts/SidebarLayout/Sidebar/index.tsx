@@ -48,7 +48,7 @@ function Sidebar() {
           background:
             theme.palette.mode === 'dark'
               ? alpha(lighten(theme.header.background, 0.1), 0.5)
-              : darken(theme.colors.alpha.black[100], 0.5),
+              : darken(theme.colors.alpha.black[5], 0.5),
           boxShadow:
             theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
         }}
@@ -68,14 +68,14 @@ function Sidebar() {
             sx={{
               mt: theme.spacing(3),
               mx: theme.spacing(2),
-              background: theme.colors.alpha.trueWhite[10]
+              background: theme.colors.alpha.trueWhite[100]
             }}
           />
           <SidebarMenu />
         </Scrollbar>
         <Divider
           sx={{
-            background: theme.colors.alpha.trueWhite[10]
+            background: theme.colors.alpha.trueWhite[100]
           }}
         />
         <Box p={2}>
@@ -106,7 +106,7 @@ function Sidebar() {
           sx={{
             background:
               theme.palette.mode === 'dark'
-                ? theme.colors.alpha.white[100]
+                ? theme.colors.alpha.black[100]
                 : darken(theme.colors.alpha.black[100], 0.5)
           }}
         >
@@ -125,7 +125,7 @@ function Sidebar() {
               sx={{
                 mt: theme.spacing(3),
                 mx: theme.spacing(2),
-                background: theme.colors.alpha.trueWhite[10]
+                background: theme.colors.alpha.trueWhite[100]
               }}
             />
             <SidebarMenu />
