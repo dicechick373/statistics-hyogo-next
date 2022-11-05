@@ -99,28 +99,18 @@ function Logo() {
 
   return (
     <TooltipWrapper
-      title="Tokyo Free White Next.js Typescript Admin Dashboard"
+      title="statistics-hyogo"
       arrow
     >
       <LogoWrapper href="/">
-        <Badge
-          sx={{
-            '.MuiBadge-badge': {
-              fontSize: theme.typography.pxToRem(11),
-              right: -2,
-              top: 8
-            }
-          }}
-          overlap="circular"
-          color="success"
-          badgeContent="1.0"
-        >
-          <LogoSignWrapper>
-            <LogoSign>
-              <LogoSignInner />
-            </LogoSign>
-          </LogoSignWrapper>
-        </Badge>
+
+        <LogoSignWrapper>
+          <Box textAlign="center">
+            <img alt="404" height={50} src="/static/images/logo/logo.svg" />
+          </Box>
+
+        </LogoSignWrapper>
+
       </LogoWrapper>
     </TooltipWrapper>
   );
