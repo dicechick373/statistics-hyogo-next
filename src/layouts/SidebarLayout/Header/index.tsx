@@ -17,7 +17,7 @@ import CloseTwoToneIcon from '@mui/icons-material/CloseTwoTone';
 
 import HeaderButtons from './Buttons';
 import HeaderMenu from './Menu';
-import SelectPrefecture from '@/components/SelectPrefecture';
+import SelectPrefecture from '@/components/Select/SelectPrefecture';
 
 const HeaderWrapper = styled(Box)(
   ({ theme }) => `
