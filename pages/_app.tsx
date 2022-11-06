@@ -1,4 +1,4 @@
-import type { ReactElement, ReactNode } from 'react';
+import { ReactElement, ReactNode, useEffect, useState } from 'react';
 
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
@@ -13,6 +13,8 @@ import createEmotionCache from 'src/createEmotionCache';
 import { SidebarProvider } from 'src/contexts/SidebarContext';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import { useAtom } from 'jotai';
+import { areasAtom } from '@/components/atoms';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -32,6 +34,21 @@ function TokyoApp(props: TokyoAppProps) {
   Router.events.on('routeChangeStart', nProgress.start);
   Router.events.on('routeChangeError', nProgress.done);
   Router.events.on('routeChangeComplete', nProgress.done);
+
+  /*
+   ** set areasAtom
+   */
+  const [areas, setAreas] = useAtom(areasAtom)
+  useEffect(() => {
+    const fetchAreas = async () => {
+      const response = await fetch('/api/areas')
+      const data = await response.json()
+      setAreas(data)
+    }
+    fetchAreas()
+  }, [])
+
+
 
   return (
     <CacheProvider value={emotionCache}>
