@@ -18,6 +18,7 @@ import CloseTwoToneIcon from '@mui/icons-material/CloseTwoTone';
 import HeaderButtons from './Buttons';
 import HeaderMenu from './Menu';
 import SelectPrefecture from '@/components/Select/SelectPrefecture';
+import SelectCity from '@/components/Select/SelectCity';
 
 const HeaderWrapper = styled(Box)(
   ({ theme }) => `
@@ -70,6 +71,8 @@ function Header() {
       >
         <HeaderMenu />
         <SelectPrefecture />
+
+        <SelectCity />
       </Stack>
       <Box display="flex" alignItems="center">
         <HeaderButtons />

@@ -15,6 +15,21 @@ export const areasAtom = atom([])
 export const prefListAtom = atom((get) => get(areasAtom).filter((f) => f.governmentType === 'prefecture'))
 
 /*
- ** 都道府県リスト
+ ** 選択中の都道府県コード
  */
 export const prefCodeAtom = atom(28)
+
+/*
+ ** 市区町村リスト
+ */
+export const cityListAtom = atom((get) => {
+    const areaList = get(areasAtom)
+    const prefCode = get(prefCodeAtom)
+    return areaList.filter((f) => f.governmentType === 'city')
+        .filter((f) => f.prefCode === prefCode)
+})
+
+/*
+ ** 選択中の市区町村コード
+ */
+ export const cityCodeAtom = atom('28100')
